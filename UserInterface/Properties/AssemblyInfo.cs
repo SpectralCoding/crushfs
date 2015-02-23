@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CrushFS User Interface")]
-[assembly: AssemblyDescription("CrushFS User Interface")]
+[assembly: AssemblyTitle("CFS User Interface")]
+[assembly: AssemblyDescription("CFS User Interface")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SpectralCoding")]
-[assembly: AssemblyProduct("CrushFS")]
+[assembly: AssemblyProduct("CFS")]
 [assembly: AssemblyCopyright("Copyright© 2015")]
 [assembly: AssemblyTrademark("SpectralCoding")]
 [assembly: AssemblyCulture("")]
@@ -51,5 +51,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.0.1.16485")]
-[assembly: AssemblyFileVersion("0.0.1.16485")]
+[assembly: AssemblyVersion("0.0.74.16488")]
+[assembly: AssemblyFileVersion("0.0.74.16488")]

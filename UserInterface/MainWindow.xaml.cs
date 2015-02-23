@@ -29,6 +29,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
+using Dokan;
+using CrushFS;
 
 namespace UserInterface {
 	/// <summary>
@@ -37,6 +40,38 @@ namespace UserInterface {
 	public partial class MainWindow : Window {
 		public MainWindow() {
 			InitializeComponent();
+		}
+
+		private void Window_Loaded(object sender, RoutedEventArgs e) {
+			DokanOptions Options = new DokanOptions();
+			Options.MountPoint = @"T:\";
+			Options.DebugMode = true;
+			Options.UseStdErr = true;
+			Options.VolumeLabel = "CrushFS";
+			int Status = DokanNet.DokanMain(Options, new CFS());
+			switch (Status) {
+				case DokanNet.DOKAN_DRIVE_LETTER_ERROR:
+					Debug.WriteLine("Drvie letter error");
+					break;
+				case DokanNet.DOKAN_DRIVER_INSTALL_ERROR:
+					Debug.WriteLine("Driver install error");
+					break;
+				case DokanNet.DOKAN_MOUNT_ERROR:
+					Debug.WriteLine("Mount error");
+					break;
+				case DokanNet.DOKAN_START_ERROR:
+					Debug.WriteLine("Start error");
+					break;
+				case DokanNet.DOKAN_ERROR:
+					Debug.WriteLine("Unknown error");
+					break;
+				case DokanNet.DOKAN_SUCCESS:
+					Debug.WriteLine("Success");
+					break;
+				default:
+					Debug.WriteLine("Unknown status: %d", Status);
+					break;
+			}
 		}
 	}
 }
